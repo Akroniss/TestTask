@@ -26,6 +26,7 @@ public class Attack : MonoBehaviour
     }
     private IEnumerator Timer()
     {
+        yield return new WaitForSeconds(2);
         while (true)
         {
             Shot();
@@ -35,7 +36,7 @@ public class Attack : MonoBehaviour
     private void Shot()
     {
         Bullet bullet = _pool[0];
-        bullet.Starting(transform.position, _speedBullet);
+        bullet.Starting(transform.position, _speedBullet, _damage);
         _pool.Remove(bullet);
         _pool.Add(bullet);
     }

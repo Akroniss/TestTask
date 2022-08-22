@@ -30,7 +30,7 @@ public class Attack : MonoBehaviour
         while (true)
         {
             Shot();
-            yield return new WaitForSeconds(_period);
+            yield return new WaitForSeconds(1 / _period);
         }
     }
     private void Shot()

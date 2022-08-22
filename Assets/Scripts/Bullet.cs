@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     }
     private IEnumerator Flight(float endPosition, float speed)
     {
-        while (transform.position.y < endPosition || enabled == true)
+        while (transform.position.y < endPosition)
         {
             transform.Translate(Vector3.up * speed * Time.deltaTime);
             yield return new WaitForEndOfFrame();

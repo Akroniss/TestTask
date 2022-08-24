@@ -14,6 +14,9 @@ public class Attack : MonoBehaviour
     private void Start()
     {
         PoolFilling();
+    }
+    private void OnEnable()
+    {
         StartCoroutine(Timer());
     }
     private void PoolFilling()
@@ -27,7 +30,7 @@ public class Attack : MonoBehaviour
     private IEnumerator Timer()
     {
         yield return new WaitForSeconds(2);
-        while (true)
+        while (enabled == true)
         {
             Shot();
             yield return new WaitForSeconds(1 / _period);

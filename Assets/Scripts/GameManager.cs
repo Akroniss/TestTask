@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private Text _counter;
     [SerializeField] private Text _gameOver;
+    [SerializeField] private Text _gameStart;
     private int _count = 0;
     private void Start()
     {
@@ -21,14 +22,12 @@ public class GameManager : MonoBehaviour
     }
     private void GameOver(Player player)
     {
-        player.GetComponent<Movement>().enabled = false;
-        player.GetComponent<Attack>().enabled = false;
         _gameOver.gameObject.SetActive(true);
     }
     private void Play(Player player)
     {
-        player.GetComponent<Movement>().enabled = true;
-        player.GetComponent<Attack>().enabled = true;
+        _gameStart.gameObject.SetActive(false);
+        _counter.gameObject.SetActive(true);
         Player.Play -= Play;
     }
 }

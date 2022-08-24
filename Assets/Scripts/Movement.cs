@@ -8,7 +8,10 @@ public class Movement : MonoBehaviour
     [SerializeField] private float _speed;
     private void OnMouseDrag()
     {
-        transform.position = new Vector3(_camera.ScreenToWorldPoint(Input.mousePosition).x, transform.position.y, transform.position.z);
+        if (enabled)
+        {
+            transform.position = new Vector3(_camera.ScreenToWorldPoint(Input.mousePosition).x, transform.position.y, transform.position.z);
+        }
     }
     private void Update()
     {
